@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    ports:
+      - "3306:3306"
+    networks:
+      - wordpress-network
+    restart: always
+
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    environment:
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_USER: ${MARIADB_USER}
+      WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
+      WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - wordpress-network
+    depends_on:
+      - mariadb
+    restart: always
+    
+
+  nginx:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:443" 
+    networks:
+      - wordpress-network
+    volumes:
+      - wordpress:/var/www/html
+    depends_on:
+      - wordpress
+    restart: always
+   
+volumes:
+  wordpress :
+  mariadb:
+
+networks:
+  wordpress-network:
+    driver: bridge
