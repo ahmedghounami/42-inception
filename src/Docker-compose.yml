@@ -32,14 +32,14 @@ services:
     depends_on:
       - mariadb
     restart: always
-    
-
+  
   nginx:
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
     ports:
-      - "8080:443" 
+      - "443:443" 
+      - "8080:80"
     networks:
       - wordpress-network
     volumes:

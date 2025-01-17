@@ -1,4 +1,4 @@
-# Dockerfile for WordPress
+# Dockerfile instructions to create a custom WordPress container with NGINX and PHP-FPM
 
 FROM debian:11
 

@@ -6,3 +6,5 @@ clean :
 	@cd src && docker compose down
 	@docker system prune -f
 	@docker rmi -f $(shell docker images -q)
+
+re : clean all

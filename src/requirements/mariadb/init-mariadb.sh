@@ -13,11 +13,6 @@ mariadb -e "CREATE USER IF NOT EXISTS '$MARIADB_USER'@'%' IDENTIFIED BY '$MARIAD
 mariadb -e "GRANT ALL PRIVILEGES ON $MARIADB_DATABASE.* TO '$MARIADB_USER'@'%';"
 mariadb -e "FLUSH PRIVILEGES;"
 
-echo $MARIADB_DATABASE
-echo $MARIADB_USER
-echo $MARIADB_PASSWORD
-
-
 service mariadb stop
 
 # Keep MariaDB running in the foreground
