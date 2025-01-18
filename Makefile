@@ -8,3 +8,4 @@ clean :
 	@docker rmi -f $(shell docker images -q)
 
 re : clean all
+red : clean d

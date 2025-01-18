@@ -1,7 +1,8 @@
 version: "3.9"
 
 services:
-  mariadb:
+  mariadb_42:
+    image: mariadb_42
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
@@ -10,47 +11,51 @@ services:
       MARIADB_DATABASE: ${MARIADB_DATABASE}
       MARIADB_USER: ${MARIADB_USER}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    volumes:
+      - mariadb-data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
       - wordpress-network
     restart: always
 
-  wordpress:
+  wordpress_42:
+    image: wordpress_42
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     environment:
-      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_HOST: mariadb_42:3306
       WORDPRESS_DB_USER: ${MARIADB_USER}
       WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
     volumes:
-      - wordpress:/var/www/html
+      - wordpress-data:/var/www/html
     networks:
       - wordpress-network
     depends_on:
-      - mariadb
+      - mariadb_42
     restart: always
-  
-  nginx:
+
+  nginx_42:
+    image: nginx_42
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
     ports:
-      - "443:443" 
+      - "443:443"
       - "8080:80"
     networks:
       - wordpress-network
     volumes:
-      - wordpress:/var/www/html
+      - wordpress-data:/var/www/html
     depends_on:
-      - wordpress
+      - wordpress_42
     restart: always
-   
+
 volumes:
-  wordpress :
-  mariadb:
+  mariadb-data:
+  wordpress-data:
 
 networks:
   wordpress-network:

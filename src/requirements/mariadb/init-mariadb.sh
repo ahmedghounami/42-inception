@@ -15,5 +15,6 @@ mariadb -e "FLUSH PRIVILEGES;"
 
 service mariadb stop
 
+echo "mariadb is running successfully ..."
 # Keep MariaDB running in the foreground
 mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
