@@ -11,8 +11,8 @@ services:
       MARIADB_DATABASE: ${MARIADB_DATABASE}
       MARIADB_USER: ${MARIADB_USER}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD}
-    volumes:
-      - mariadb-data:/var/lib/mysql
+    # volumes:
+    #   - /home/aghounam/data/mariadb-data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -29,8 +29,8 @@ services:
       WORDPRESS_DB_USER: ${MARIADB_USER}
       WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
-    volumes:
-      - wordpress-data:/var/www/html
+    # volumes:
+    #   - /home/aghounam/data/wordpress-data:/var/www/html
     networks:
       - wordpress-network
     depends_on:
@@ -47,15 +47,17 @@ services:
       - "8080:80"
     networks:
       - wordpress-network
-    volumes:
-      - wordpress-data:/var/www/html
+    # volumes:
+    #   - /home/aghounam/data/wordpress-data:/var/www/html
     depends_on:
       - wordpress_42
     restart: always
 
 volumes:
   mariadb-data:
+    
   wordpress-data:
+
 
 networks:
   wordpress-network:

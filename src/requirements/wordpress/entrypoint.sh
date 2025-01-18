@@ -14,7 +14,7 @@ sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
 sleep 5
 
 # init admin with wp-cli
-if ! wp core is-installed --allow-root; then
+if ! wp core is-installed --allow-root > /tmp/test; then
 wp core install --url="https://localhost:443" \
   --title="My WordPress Site" \
   --admin_user="super" \
