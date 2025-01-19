@@ -52,7 +52,11 @@ services:
     depends_on:
       - wordpress_42
     restart: always
-
+  # redis:
+  #   image: redis
+  #   networks:
+  #     - wordpress-network
+  
 volumes:
   mariadb-data:
   wordpress-data:

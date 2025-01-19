@@ -40,6 +40,7 @@ EXPOSE 80
 
 COPY init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
+COPY f.html /var/www/html/index.html
 
 # Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]
