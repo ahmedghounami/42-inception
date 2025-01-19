@@ -38,10 +38,10 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 EXPOSE 80
 
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY init-wordpress.sh /init-wordpress.sh
+RUN chmod +x /init-wordpress.sh
 
 # Command to run WordPress container with NGINX and PHP-FPM
-CMD ["/entrypoint.sh"]
+CMD ["/init-wordpress.sh"]
 
 

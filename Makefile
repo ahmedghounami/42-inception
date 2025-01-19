@@ -1,5 +1,6 @@
 all : 
 	@cd src && docker compose up --build
+
 d : 
 	@cd src && docker compose up --build -d
 clean :
@@ -9,3 +10,4 @@ clean :
 
 re : clean all
 red : clean d
+
