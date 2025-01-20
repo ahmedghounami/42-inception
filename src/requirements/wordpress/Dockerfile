@@ -37,10 +37,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 # Expose port 80
 EXPOSE 80
 
-
 COPY init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
+RUN apt-get update && apt-get install -y php-redis
 COPY f.html /var/www/html/index.html
+
 
 # Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]

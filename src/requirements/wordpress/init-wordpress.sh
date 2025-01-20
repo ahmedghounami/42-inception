@@ -7,9 +7,29 @@ sed -i "s/username_here/$WORDPRESS_DB_USER/" /var/www/html/wp-config.php
 sed -i "s/password_here/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
 sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
 
+sleep 5
+
+wp config set WP_REDIS_HOST 'redis' --allow-root
+
+wp config set WP_CACHE 'true' --allow-root
+
+wp config set FS_METHOD 'direct' --allow-root
+
+wp config set WP_REDIS_PORT '6379' --allow-root
 
 
-# service php7.4-fpm start
+sleep 5
+
+wp plugin install redis-cache --activate --allow-root
+
+sleep 5
+
+wp redis enable --allow-root
+
+sleep 5
+
+wp theme install twentytwenty --allow-root
+wp theme activate twentytwenty --allow-root
 
 sleep 5
 
@@ -32,6 +52,7 @@ wp user create ahmed ahmed@example.com \
 --display_name="ahmed" --allow-root
 fi
 
+chmod -R 777 /var/www/html/
 mkdir -p /run/php
 
 
