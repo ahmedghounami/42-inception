@@ -27,6 +27,9 @@ wp redis enable --allow-root
 
 sleep 5
 
+# wp cache flush --allow-root
+
+
 # init admin with wp-cli
 if ! wp core is-installed --allow-root >> /tmp/test; then
 wp core install --url="https://localhost:443" \
