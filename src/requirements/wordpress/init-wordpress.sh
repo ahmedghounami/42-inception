@@ -17,7 +17,6 @@ wp config set FS_METHOD 'direct' --allow-root
 
 wp config set WP_REDIS_PORT '6379' --allow-root
 
-
 sleep 5
 
 wp plugin install redis-cache --activate --allow-root
@@ -28,10 +27,8 @@ wp redis enable --allow-root
 
 sleep 5
 
-wp theme install twentytwenty --allow-root
-wp theme activate twentytwenty --allow-root
+# wp cache flush --allow-root
 
-sleep 5
 
 # init admin with wp-cli
 if ! wp core is-installed --allow-root >> /tmp/test; then

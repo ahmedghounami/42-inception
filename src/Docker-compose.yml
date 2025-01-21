@@ -37,6 +37,7 @@ services:
     depends_on:
       - mariadb
 
+
 # wordpress service :
   wordpress:
     container_name: wordpress
@@ -56,6 +57,25 @@ services:
     depends_on:
       - mariadb
     restart: always
+
+# ftp service :
+  ftp:
+    container_name: ftp
+    image: ftp
+    build:
+      context: ./bonus/ftp
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress-data:/var/www/html
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    networks:
+      - wordpress-network
+    restart: always
+    depends_on:
+      - mariadb
+      - wordpress
 
 # nginx service :
   nginx:
