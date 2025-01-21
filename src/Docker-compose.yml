@@ -52,6 +52,7 @@ services:
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
     volumes:
       - wordpress-data:/var/www/html
+      - monitor-logs:/var/log
     networks:
       - wordpress-network
     depends_on:
@@ -112,10 +113,23 @@ services:
       - wordpress
     restart: always
   
+  website-monitor:
+    container_name: website-monitor
+    build:
+      context: ./bonus/status
+      dockerfile: Dockerfile
+    volumes:
+      - monitor-logs:/var/log
+    networks:
+      - wordpress-network
+    depends_on:
+      - nginx
+    restart: always
   
 volumes:
   mariadb-data:
   wordpress-data:
+  monitor-logs:
 
 
 networks:

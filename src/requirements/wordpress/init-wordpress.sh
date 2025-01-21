@@ -19,15 +19,17 @@ wp config set WP_REDIS_PORT '6379' --allow-root
 
 sleep 5
 
-wp plugin install redis-cache --activate --allow-root
+wp plugin install redis-cache --allow-root
 
-sleep 10
+sleep 15
+
+wp plugin activate redis-cache --allow-root
+
+sleep 5
 
 wp redis enable --allow-root
 
 sleep 5
-
-# wp cache flush --allow-root
 
 
 # init admin with wp-cli

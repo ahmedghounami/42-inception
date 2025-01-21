@@ -1,5 +1,4 @@
 
-# base image: version 12 of debian
 FROM    debian:11
 
 RUN apt update && apt upgrade
