@@ -77,6 +77,23 @@ services:
       - mariadb
       - wordpress
 
+# phpmyadmin service :
+  adminer:
+    container_name: adminer
+    image: adminer
+    build:
+      context: ./bonus/adminer
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    networks:
+      - wordpress-network
+    restart: always
+    depends_on:
+      - mariadb
+      - wordpress
+  
+
 # nginx service :
   nginx:
     container_name: nginx

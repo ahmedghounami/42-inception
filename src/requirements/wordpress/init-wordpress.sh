@@ -21,7 +21,7 @@ sleep 5
 
 wp plugin install redis-cache --activate --allow-root
 
-sleep 5
+sleep 10
 
 wp redis enable --allow-root
 

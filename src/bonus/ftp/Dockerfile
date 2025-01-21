@@ -19,9 +19,9 @@ COPY script.sh /script.sh
 
 # Make the script executable
 RUN chmod +x /script.sh
+
 # Expose the FTP port
 EXPOSE 21
-
 # Start the FTP server in the foreground
 CMD ["/script.sh"]
 # CMD ["vsftpd", "/etc/vsftpd.conf"]
