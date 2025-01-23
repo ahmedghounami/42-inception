@@ -15,7 +15,7 @@ echo "$FTP_USER:$FTP_PASS" | chpasswd
 
 # Set correct permissions
 chown -R "$FTP_USER:$FTP_USER" "$USER_HOME"
-
+mkdir -p /var/run/vsftpd/empty
 echo "FTP user created: $FTP_USER successfully ..."
 
 # Start the FTP server

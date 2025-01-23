@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dockerized Environment Summary</title>
+    <style>
+        .text-shadow-blue {
+            text-shadow: 2px 2px 4px rgba(0, 0, 255, 0.6), 0 0 25px rgba(0, 0, 255, 0.5);
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff2a2a;
+            border-bottom: 2px solid #ff2a2a;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .service-section {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff2a2a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .service-content {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <script>
+        // JavaScript to toggle the visibility of the table of contents
+        function toggleTableOfContents() {
+            var tocList = document.getElementById("tocList");
+            if (tocList.classList.contains("hidden")) {
+                tocList.classList.remove("hidden");
+            } else {
+                tocList.classList.add("hidden");
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="w-[100%] h-[100vh] flex-col items-center justify-center overflow-y-scroll bg-gradient-to-t from-blue-700 to-indigo-900">
+
+    <bar class="fixed top-0 w-[100%] h-16 bg-[#1919be] flex items-center bg-opacity-40 justify-between px-4">
+        <h1 class="text-[#ffffff] font-extrabold text-[1.5rem]">Ahmed Ghounami</h1>
+        <a href="https://aghounam.me"
+            class="text-[#ffffff] font-extrabold text-[1.5rem] hover:text-blue-300 cursor-pointer">My Portfolio</a>
+    </bar>
+
+    <video class="top-0 left-0 w-full h-full object-cover fixed z-[-1]" autoplay muted loop>
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+
+    <h1 class="text-white text-center text-[3rem] font-extrabold text-shadow-blue mt-10">
+        Detailed Summary of Services <br>
+        and Interactions <br>
+        in My Dockerized Environment
+    </h1>
+
+    <!-- Table of Contents -->
+    <div class="bg-black bg-opacity-50 p-5 rounded-2xl w-[20%] m-auto time fixed">
+
+        <button id="toggleButton" class="text-[1.6rem] font-bold text-[#02040c] bg-[#ff2a2a] p-2 rounded-xl w-full mb-4"
+            onclick="toggleTableOfContents()">
+            Table of Contents
+        </button>
+
+        <ul id="tocList" class="hidden">
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#docker">#Docker</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#docker-compose">#Docker Compose</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#nginx">#NGINX</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#tls">#TLS</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#wordpress">#WordPress</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#php-fpm">#PHP-FPM</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#mariadb">#MariaDB</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#redis">#Redis Cache</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#ftp-server">#FTP Server</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#adminer">#Adminer</a></li>
+            <li><a class="text-center text-[1.4rem] hover:text-blue-300 cursor-pointer text-[#1bd1ff]" href="#portainer">#Portainer</a></li>
+        </ul>
+    </div>
+
+    <div class="relative w-[50%] mx-auto bg-slate-500 bg-opacity-40 p-5 rounded-2xl">
+
+        <!-- docker -->
+        <div id="docker" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">What is Docker?</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/docker.jpg" alt="Docker Logo" />
+            <p class="text-lg text-white font-semibold">Docker is a powerful platform that enables you to develop,
+                deploy, and run applications in isolated environments called containers. Containers allow you to package
+                an application with all of its dependencies, including the operating system libraries, making it
+                portable and easier to deploy across different systems.</p>
+            <p class="text-lg text-white font-semibold">Containers are lightweight and efficient because they share the
+                host system's operating system kernel but remain isolated from other containers. This makes Docker
+                containers faster to start and smaller in size compared to traditional virtual machines.</p>
+        </div>
+
+        <!-- docker-compose -->
+        <div id="docker-compose" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Docker Compose</h2>
+            <p class="text-lg text-white font-semibold">Docker Compose is a tool that simplifies managing
+                multi-container applications. Instead of manually creating and starting each container, you can define
+                all of your services in a YAML file (docker-compose.yml) and use a single command (`docker-compose up`)
+                to start the entire environment.</p>
+            <p class="text-lg text-white font-semibold">This is useful for setting up complex applications where
+                multiple containers need to communicate, such as a web server, database, and caching service. Docker
+                Compose automatically handles networking between containers and volume mounts to persist data.</p>
+        </div>
+
+        <!-- nginx -->
+        <div id="nginx" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">NGINX</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/nginx.webp" alt="NGINX Logo" />
+            <p class="text-lg text-white font-semibold">NGINX is a powerful web server and reverse proxy server. In a
+                Dockerized environment, NGINX can be used to serve static files, such as images, JavaScript, and CSS,
+                and act as a reverse proxy for other services like PHP-FPM, MySQL, or Redis.</p>
+            <p class="text-lg text-white font-semibold">NGINX can handle a high number of concurrent connections due to
+                its event-driven architecture, making it ideal for performance-heavy applications. It is often used in
+                conjunction with PHP-FPM to serve WordPress sites.</p>
+        </div>
+
+        <!-- wordpress -->
+        <div id="wordpress" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">WordPress</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/wordpress.png" alt="WordPress Logo" />
+            <p class="text-lg text-white font-semibold">WordPress is a popular open-source content management system
+                (CMS) used for building websites and blogs. When running WordPress in Docker, you can isolate your site
+                from the underlying operating system, simplifying deployment and scaling.</p>
+            <p class="text-lg text-white font-semibold">WordPress requires a MySQL or MariaDB database to store content.
+                By using Docker, you can easily spin up a WordPress container alongside a database container for a fully
+                functional website setup.</p>
+        </div>
+
+        <!-- php-fpm -->
+        <div id="php-fpm" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">PHP-FPM</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/phpfpm.png" alt="PHP-FPM Logo" />
+            <p class="text-lg text-white font-semibold">PHP-FPM (FastCGI Process Manager) is an advanced PHP
+                implementation that improves the performance of PHP applications. It is often used alongside NGINX to
+                process dynamic PHP content in web applications, such as WordPress.</p>
+            <p class="text-lg text-white font-semibold">PHP-FPM runs PHP as a fast CGI service, enabling NGINX to handle
+                static files and proxy dynamic PHP requests to PHP-FPM. This combination is highly efficient, as NGINX
+                can serve static content directly and pass PHP processing to PHP-FPM.</p>
+        </div>
+
+        <!-- mariadb -->
+        <div id="mariadb" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">MariaDB</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/mariadb.jpg" alt="MariaDB Logo" />
+            <p class="text-lg text-white font-semibold">MariaDB is a high-performance, open-source database management
+                system. It is a fork of MySQL and is often used as the database backend for applications like WordPress.
+            </p>
+            <p class="text-lg text-white font-semibold">In a Docker setup, MariaDB is typically run in its own
+                container, separate from the WordPress container. Docker Compose can be used to manage the connection
+                between these containers, ensuring that the WordPress container can access the MariaDB container
+                securely.</p>
+        </div>
+
+        <!-- redis -->
+        <div id="redis" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Redis Cache</h2>
+            <img class="w-full h-auto rounded-xl mb-4"
+                src="assets/redis.webp"
+                alt="Redis Logo" />
+            <p class="text-lg text-white font-semibold">Redis is an in-memory data structure store used as a database,
+                cache, and message broker. In a Dockerized WordPress setup, Redis is commonly used as a caching layer to
+                improve site performance by reducing database queries for frequently accessed content.</p>
+            <p class="text-lg text-white font-semibold">Redis can be run in its own Docker container, and Docker Compose
+                allows you to easily integrate Redis with WordPress to speed up page loading times and reduce server
+                load.</p>
+        </div>
+
+        <!-- ftp-server -->
+        <div id="ftp-server" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">FTP Server</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/ftp.webp" alt="FTP Logo" />
+            <p class="text-lg text-white font-semibold">An FTP server allows file transfers between systems. In a Docker
+                setup, FTP servers are often used to enable file uploads and downloads from the containerized
+                environment. FTP can be run in active or passive mode.</p>
+            <p class="text-lg text-white font-semibold">In active mode, the FTP client opens a port for the data
+                transfer, while in passive mode, the server opens the port. Passive mode is typically used in Docker due
+                to networking limitations and firewall configurations.</p>
+        </div>
+
+        <!-- adminer -->
+        <div id="adminer" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Adminer</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/adminer.jpg" alt="Adminer Logo" />
+            <p class="text-lg text-white font-semibold">Adminer is a database management tool, similar to phpMyAdmin. It
+                is lightweight and supports multiple database systems, including MySQL and MariaDB.</p>
+            <p class="text-lg text-white font-semibold">Adminer allows you to manage databases directly from your web
+                browser, providing a simple interface for database tasks such as creating tables, running queries, and
+                managing users. When running in Docker, Adminer can be deployed in its own container alongside your
+                database containers.</p>
+        </div>
+
+        <!-- portainer -->
+        <div id="portainer" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
+            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Portainer</h2>
+            <img class="w-full h-auto rounded-xl mb-4" src="assets/portainer.png" alt="Portainer Logo" />
+            <p class="text-lg text-white font-semibold">Portainer is a web-based management tool for Docker. It provides
+                a simple and intuitive UI for managing your Docker containers, networks, volumes, and images. Portainer
+                can be deployed in its own container and connects to your Docker host to give you a visual interface for
+                managing your environment.</p>
+            <p class="text-lg text-white font-semibold">With Portainer, you can easily monitor container status, view
+                logs, and perform common management tasks without needing to rely on the command line.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
