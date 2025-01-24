@@ -1,8 +1,6 @@
-# Use Debian 11 as the base image
+
 FROM debian:11
 
-# Set environment variables to prevent prompts during installation
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Update package list and install MariaDB server and client
 RUN apt-get update && \

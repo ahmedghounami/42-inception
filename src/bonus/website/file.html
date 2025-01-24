@@ -17,49 +17,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff2a2a;
-            border-bottom: 2px solid #ff2a2a;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.5rem;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .service-section {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-        }
-
-        .service-title {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff2a2a;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .service-content {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .section-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
     </style>
 
     <script>
@@ -97,7 +54,7 @@
     <!-- Table of Contents -->
     <div class="bg-black bg-opacity-50 p-5 rounded-2xl w-[20%] m-auto time fixed">
 
-        <button id="toggleButton" class="text-[1.6rem] font-bold text-[#02040c] bg-[#ff2a2a] p-2 rounded-xl w-full mb-4"
+        <button id="toggleButton" class="text-[1.6rem] font-bold text-[#ffffff] bg-[#1bd1ff] p-2 rounded-xl w-full mb-4"
             onclick="toggleTableOfContents()">
             Table of Contents
         </button>
@@ -117,11 +74,11 @@
         </ul>
     </div>
 
-    <div class="relative w-[50%] mx-auto bg-slate-500 bg-opacity-40 p-5 rounded-2xl">
+    <div class="relative w-[60%] mx-auto bg-slate-500 bg-opacity-40 p-5 rounded-2xl">
 
         <!-- docker -->
         <div id="docker" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">What is Docker?</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">What is Docker?</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/docker.jpg" alt="Docker Logo" />
             <p class="text-lg text-white font-semibold">Docker is a powerful platform that enables you to develop,
                 deploy, and run applications in isolated environments called containers. Containers allow you to package
@@ -134,7 +91,7 @@
 
         <!-- docker-compose -->
         <div id="docker-compose" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Docker Compose</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">Docker Compose</h2>
             <p class="text-lg text-white font-semibold">Docker Compose is a tool that simplifies managing
                 multi-container applications. Instead of manually creating and starting each container, you can define
                 all of your services in a YAML file (docker-compose.yml) and use a single command (`docker-compose up`)
@@ -146,7 +103,7 @@
 
         <!-- nginx -->
         <div id="nginx" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">NGINX</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">NGINX</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/nginx.webp" alt="NGINX Logo" />
             <p class="text-lg text-white font-semibold">NGINX is a powerful web server and reverse proxy server. In a
                 Dockerized environment, NGINX can be used to serve static files, such as images, JavaScript, and CSS,
@@ -158,7 +115,7 @@
 
         <!-- wordpress -->
         <div id="wordpress" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">WordPress</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">WordPress</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/wordpress.png" alt="WordPress Logo" />
             <p class="text-lg text-white font-semibold">WordPress is a popular open-source content management system
                 (CMS) used for building websites and blogs. When running WordPress in Docker, you can isolate your site
@@ -170,7 +127,7 @@
 
         <!-- php-fpm -->
         <div id="php-fpm" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">PHP-FPM</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">PHP-FPM</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/phpfpm.png" alt="PHP-FPM Logo" />
             <p class="text-lg text-white font-semibold">PHP-FPM (FastCGI Process Manager) is an advanced PHP
                 implementation that improves the performance of PHP applications. It is often used alongside NGINX to
@@ -182,7 +139,7 @@
 
         <!-- mariadb -->
         <div id="mariadb" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">MariaDB</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">MariaDB</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/mariadb.jpg" alt="MariaDB Logo" />
             <p class="text-lg text-white font-semibold">MariaDB is a high-performance, open-source database management
                 system. It is a fork of MySQL and is often used as the database backend for applications like WordPress.
@@ -195,7 +152,7 @@
 
         <!-- redis -->
         <div id="redis" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Redis Cache</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">Redis Cache</h2>
             <img class="w-full h-auto rounded-xl mb-4"
                 src="assets/redis.webp"
                 alt="Redis Logo" />
@@ -209,7 +166,7 @@
 
         <!-- ftp-server -->
         <div id="ftp-server" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">FTP Server</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">FTP Server</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/ftp.webp" alt="FTP Logo" />
             <p class="text-lg text-white font-semibold">An FTP server allows file transfers between systems. In a Docker
                 setup, FTP servers are often used to enable file uploads and downloads from the containerized
@@ -221,7 +178,7 @@
 
         <!-- adminer -->
         <div id="adminer" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Adminer</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">Adminer</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/adminer.jpg" alt="Adminer Logo" />
             <p class="text-lg text-white font-semibold">Adminer is a database management tool, similar to phpMyAdmin. It
                 is lightweight and supports multiple database systems, including MySQL and MariaDB.</p>
@@ -233,7 +190,7 @@
 
         <!-- portainer -->
         <div id="portainer" class="bg-black bg-opacity-50 p-8 mb-10 rounded-xl">
-            <h2 class="text-2xl font-bold text-[#ff2a2a] border-b-2 border-[#ff2a2a] pb-2 mb-4">Portainer</h2>
+            <h2 class="text-2xl font-bold text-[#1bd1ff] border-b-2 border-[#1bd1ff] pb-2 mb-4">Portainer</h2>
             <img class="w-full h-auto rounded-xl mb-4" src="assets/portainer.png" alt="Portainer Logo" />
             <p class="text-lg text-white font-semibold">Portainer is a web-based management tool for Docker. It provides
                 a simple and intuitive UI for managing your Docker containers, networks, volumes, and images. Portainer

@@ -1,8 +1,6 @@
-# Use Debian as the base image
+
 FROM debian:11
 
-# Set environment variables to prevent interactive prompts
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Install NGINX
 RUN apt update && \

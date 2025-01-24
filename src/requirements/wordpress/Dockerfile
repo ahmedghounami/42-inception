@@ -2,8 +2,6 @@
 
 FROM debian:11
 
-# Set environment variables to prevent interactive prompts
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Install required PHP and NGINX dependencies
 RUN apt-get update && \
@@ -40,8 +38,6 @@ EXPOSE 80
 COPY init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
 RUN apt-get update && apt-get install -y php-redis
-COPY f.html /var/www/html/index.html
-
 
 # Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]

@@ -1,11 +1,10 @@
 FROM debian:11
 
-# Set environment variables to prevent interactive prompts
-ENV DEBIAN_FRONTEND=noninteractive
 
 # Install FTP server
 RUN apt update && \
     apt install -y vsftpd && \
+    apt install ftp -y && \
     apt clean
 
 # Copy the configuration file

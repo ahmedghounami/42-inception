@@ -1,5 +1,5 @@
-# Use a lightweight Debian base image
-FROM debian:bullseye-slim
+
+FROM debian:11
 
 # Install Redis and necessary dependencies
 RUN apt-get update && apt-get install -y \

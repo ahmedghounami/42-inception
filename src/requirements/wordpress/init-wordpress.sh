@@ -1,5 +1,6 @@
 #!/bin/bash
-sleep 5
+sleep 30
+
 echo "listen = 0.0.0.0:9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
 sed -i "s/database_name_here/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
@@ -10,14 +11,14 @@ sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
 # install redis-cache 
 wp plugin install redis-cache --allow-root
 
-sleep 5
+sleep 20
 
 wp config set WP_REDIS_HOST 'redis' --allow-root
 wp config set WP_CACHE 'true' --allow-root
 wp config set FS_METHOD 'direct' --allow-root
 wp config set WP_REDIS_PORT '6379' --allow-root
 
-sleep 20
+sleep 5
 
 wp plugin activate redis-cache --allow-root
 
