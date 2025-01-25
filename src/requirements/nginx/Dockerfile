@@ -27,4 +27,3 @@ RUN chmod +x /script.sh
     
 # Start NGINX in the foreground
 CMD ["/script.sh"]
-# CMD ["nginx", "-g", "daemon off;"]

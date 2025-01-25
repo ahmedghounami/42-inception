@@ -4,14 +4,15 @@ sleep 10
 echo "listen = 0.0.0.0:9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 
 
-sed -i "s/database_name_here/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
-sed -i "s/username_here/$WORDPRESS_DB_USER/" /var/www/html/wp-config.php
-sed -i "s/password_here/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
-sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
+wp config set DB_NAME "$WORDPRESS_DB_NAME" --allow-root
+wp config set DB_USER "$WORDPRESS_DB_USER" --allow-root
+wp config set DB_PASSWORD "$WORDPRESS_DB_PASSWORD" --allow-root
+wp config set DB_HOST "$WORDPRESS_DB_HOST" --allow-root
+
 
 # Install WordPress if not already installed
 if ! wp core is-installed --allow-root; then
-    wp core install --url="https://localhost:443" \
+    wp core install --url="https://localhost" \
       --title="My WordPress Site" \
       --admin_user="super" \
       --admin_password="super123" \
