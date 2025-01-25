@@ -70,7 +70,7 @@ services:
     container_name: redis
     image: redis
     build: 
-      context: ./bonus/redis
+      context: ./requirements/bonus/redis
       dockerfile: Dockerfile
     ports:
       - "6379:6379"
@@ -85,7 +85,7 @@ services:
     container_name: ftp
     image: ftp
     build:
-      context: ./bonus/ftp
+      context: ./requirements/bonus/ftp
       dockerfile: Dockerfile
     volumes:
       - wordpress-data:/var/ftp
@@ -105,51 +105,53 @@ services:
     container_name: adminer
     image: adminer
     build:
-      context: ./bonus/adminer
+      context: ./requirements/bonus/adminer
       dockerfile: Dockerfile
     ports:
       - "1010:8080"
     networks:
       - wordpress-network
+    volumes:
+      - adminer_data:/var/www/html
     restart: always
     depends_on:
       - mariadb
       - wordpress
   
-# # Add Portainer service here
-#   portainer:
-#     container_name: portainer
-#     image: portainer
-#     build:
-#       context: ./bonus/portainer
-#       dockerfile: Dockerfile
-#     restart: always
-#     ports:
-#       - "2020:9000"  # Expose the Portainer UI on port 9000
-#     volumes:
-#       - /var/run/docker.sock:/var/run/docker.sock  # Allow Portainer to interact with Docker
-#       - portainer_data:/data  # Store Portainer's data persistently
-#     networks:
-#       - wordpress-network  # Attach Portainer to the same network
-#     depends_on:
-#       - mariadb  # Ensure Portainer is started after MariaDB (optional)
+# Add Portainer service here
+  portainer:
+    container_name: portainer
+    image: portainer
+    build:
+      context: ./requirements/bonus/portainer
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "2020:9000"  # Expose the Portainer UI on port 9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Allow Portainer to interact with Docker
+      - portainer_data:/data  # Store Portainer's data persistently
+    networks:
+      - wordpress-network  # Attach Portainer to the same network
+    depends_on:
+      - mariadb  # Ensure Portainer is started after MariaDB (optional)
 
-# # website
-#   website:
-#     container_name: website
-#     image: website
-#     build:
-#       context: ./bonus/website
-#       dockerfile: Dockerfile
-#     ports:
-#       - "3030:9090"
-#     networks:
-#       - wordpress-network
-#     volumes:
-#       - wordpress-data:/var/www/html
-#     restart: "always"
-#     depends_on:
-#       - nginx
+# website
+  website:
+    container_name: website
+    image: website
+    build:
+      context: ./requirements/bonus/website
+      dockerfile: Dockerfile
+    ports:
+      - "3030:9090"
+    networks:
+      - wordpress-network
+    volumes:
+      - wordpress-data:/var/www/html
+    restart: "always"
+    depends_on:
+      - nginx
 
 volumes:
   mariadb-data:
@@ -164,7 +166,18 @@ volumes:
     #   type: none
     #   device: /home/aghounam/data/wordpress
     #   o: bind
-  # portainer_data:
+  portainer_data:
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/aghounam/data/portainer
+    #   o: bind
+  adminer_data:
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/aghounam/data/adminer
+    #   o: bind
 
 
 
