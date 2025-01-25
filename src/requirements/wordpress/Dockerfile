@@ -39,6 +39,7 @@ COPY init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
 RUN apt-get update && apt-get install -y php-redis
 
+
 # Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]
 

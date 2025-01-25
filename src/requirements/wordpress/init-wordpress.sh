@@ -1,7 +1,15 @@
 #!/bin/bash
-sleep 30
+sleep 10
 
 echo "listen = 0.0.0.0:9000" >> /etc/php/7.4/fpm/pool.d/www.conf
+
+wp plugin install redis-cache --allow-root
+sleep 20
+echo "redis-cache is installed successfully ..."
+
+wp plugin activate redis-cache --allow-root
+sleep 5
+echo "redis-cache is activated successfully ..."
 
 sed -i "s/database_name_here/$WORDPRESS_DB_NAME/" /var/www/html/wp-config.php
 sed -i "s/username_here/$WORDPRESS_DB_USER/" /var/www/html/wp-config.php
@@ -9,18 +17,12 @@ sed -i "s/password_here/$WORDPRESS_DB_PASSWORD/" /var/www/html/wp-config.php
 sed -i "s/localhost/$WORDPRESS_DB_HOST/" /var/www/html/wp-config.php
 
 # install redis-cache 
-wp plugin install redis-cache --allow-root
-
-sleep 20
 
 wp config set WP_REDIS_HOST 'redis' --allow-root
 wp config set WP_CACHE 'true' --allow-root
 wp config set FS_METHOD 'direct' --allow-root
 wp config set WP_REDIS_PORT '6379' --allow-root
 
-sleep 5
-
-wp plugin activate redis-cache --allow-root
 
 sleep 5
 
