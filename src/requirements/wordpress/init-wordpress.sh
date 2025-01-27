@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep 10
+sleep 15
 
 echo "listen = 0.0.0.0:9000" >> /etc/php/7.4/fpm/pool.d/www.conf
 

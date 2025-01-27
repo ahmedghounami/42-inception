@@ -4,7 +4,7 @@
 service mariadb start
 
 # Wait for the MariaDB service to start
-sleep 5
+sleep 10
 
 
 # Run SQL commands to create database and user
