@@ -31,7 +31,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
   chmod +x wp-cli.phar && \
   mv wp-cli.phar /usr/local/bin/wp
 
-# Expose port 80
+# Expose  port 80
 EXPOSE 80
 
 COPY init-wordpress.sh /init-wordpress.sh
