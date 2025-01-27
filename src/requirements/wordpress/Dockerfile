@@ -13,7 +13,7 @@ RUN apt-get update && \
   unzip \
   vim \
   nginx \
-  && apt-get clean
+  && apt-get clean 
 
 # Set the working directory
 
@@ -25,7 +25,6 @@ RUN wget https://wordpress.org/latest.zip && \
   rmdir wordpress && \
   rm latest.zip && \
   cp wp-config-sample.php wp-config.php
-
 
 # cli 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
