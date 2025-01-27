@@ -40,7 +40,7 @@ wp config set WP_CACHE 'true' --allow-root
 wp config set FS_METHOD 'direct' --allow-root
 wp config set WP_REDIS_PORT '6379' --allow-root
 wp redis enable --allow-root
-echo "Redis cache configured successfully."
+echo "Redis cache configured successfully..."
 
 # Fix permissions and start PHP-FPM
 chmod -R 777 /var/www/html/
