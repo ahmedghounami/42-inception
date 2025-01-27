@@ -13,7 +13,7 @@ wp config set DB_HOST "$WORDPRESS_DB_HOST" --allow-root
 # Install WordPress if not already installed
 if ! wp core is-installed --allow-root; then
     wp core install --url="https://localhost" \
-      --title="My WordPress Site" \
+      --title="42-inception" \
       --admin_user="super" \
       --admin_password="super123" \
       --admin_email="super@example.com" \
