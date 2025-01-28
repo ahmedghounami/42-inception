@@ -27,7 +27,7 @@ RUN wget https://wordpress.org/latest.zip && \
   cp wp-config-sample.php wp-config.php
 
 # cli 
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
   chmod +x wp-cli.phar && \
   mv wp-cli.phar /usr/local/bin/wp
 
