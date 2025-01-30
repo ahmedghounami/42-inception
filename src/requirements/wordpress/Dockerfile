@@ -9,7 +9,6 @@ RUN apt-get update && \
   wget \
   php7.4-fpm \
   php7.4-mysql \
-  curl \
   unzip \
   vim \
   nginx \
@@ -34,12 +33,10 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 # Expose  port 80
 EXPOSE 80
 
-COPY init-wordpress.sh /init-wordpress.sh
+COPY tools/init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
 RUN apt-get update && apt-get install -y php-redis
 
 
 # Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]
-
-

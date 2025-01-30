@@ -16,12 +16,12 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -out /etc/nginx/ssl/nginx.crt \
     -subj "/C=US/ST=State/L=City/O=Example/CN=localhost"
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 
 
-COPY script.sh /script.sh
+COPY tools/script.sh /script.sh
 
 RUN chmod +x /script.sh
     

@@ -36,6 +36,10 @@ services:
       WORDPRESS_DB_USER: ${MARIADB_USER}
       WORDPRESS_DB_PASSWORD: ${MARIADB_PASSWORD}
       WORDPRESS_DB_NAME: ${MARIADB_DATABASE}
+      ADMIN_NAME: ${ADMIN_NAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      USER_NAME: ${USER_NAME}
+      USER_PASSWORD: ${USER_PASSWORD}
     volumes:
       - wordpress-data:/var/www/html
     networks:
@@ -95,6 +99,9 @@ services:
       - "10000-10100:10000-10100"
     networks:
       - wordpress-network
+    environment:
+      FTP_USER: ${FTP_USER}
+      FTP_PASS: ${FTP_PASSWORD}
     restart: always
     depends_on:
       - mariadb
@@ -107,12 +114,10 @@ services:
     build:
       context: ./requirements/bonus/adminer
       dockerfile: Dockerfile
-    ports:
-      - "1010:8080"
     networks:
       - wordpress-network
     volumes:
-      - adminer_data:/var/www/html
+      - wordpress-data:/var/www/html
     restart: always
     depends_on:
       - mariadb
@@ -127,14 +132,14 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "2020:9000"  # Expose the Portainer UI on port 9000
+      - "9000:9000"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock  # Allow Portainer to interact with Docker
-      - portainer_data:/data  # Store Portainer's data persistently
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - portainer_data:/data
     networks:
-      - wordpress-network  # Attach Portainer to the same network
+      - wordpress-network
     depends_on:
-      - mariadb  # Ensure Portainer is started after MariaDB (optional)
+      - mariadb
 
 # website
   website:
@@ -143,41 +148,34 @@ services:
     build:
       context: ./requirements/bonus/website
       dockerfile: Dockerfile
-    ports:
-      - "3030:9090"
     networks:
       - wordpress-network
-    volumes:
-      - wordpress-data:/var/www/html
     restart: "always"
+    ports:
+      - "9090:9090"
     depends_on:
       - nginx
+      - wordpress
 
 volumes:
   mariadb-data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/aghounam/data/mariadb
-      o: bind
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/aghounam/data/mariadb
+    #   o: bind
   wordpress-data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/aghounam/data/wordpress
-      o: bind
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/aghounam/data/wordpress
+    #   o: bind
   portainer_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/aghounam/data/portainer
-      o: bind
-  adminer_data:
-    driver: local
-    driver_opts:
-      type: none
-      device: /home/aghounam/data/adminer
-      o: bind
+    # driver: local
+    # driver_opts:
+    #   type: none
+    #   device: /home/aghounam/data/portainer
+    #   o: bind
 
 
 

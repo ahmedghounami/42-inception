@@ -1,8 +1,8 @@
 all : 
-	mkdir -p /home/aghounam/data/mariadb
-	mkdir -p /home/aghounam/data/wordpress
-	mkdir -p /home/aghounam/data/adminer
-	mkdir -p /home/aghounam/data/portainer
+# mkdir -p /home/aghounam/data/mariadb
+# mkdir -p /home/aghounam/data/wordpress
+# mkdir -p /home/aghounam/data/adminer
+# mkdir -p /home/aghounam/data/portainer
 	@cd src && docker compose up --build
 
 d : 
@@ -17,3 +17,4 @@ clean :
 
 re : clean all
 red : clean d
+

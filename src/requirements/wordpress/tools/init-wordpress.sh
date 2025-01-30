@@ -14,19 +14,19 @@ wp config set DB_HOST "$WORDPRESS_DB_HOST" --allow-root
 if ! wp core is-installed --allow-root; then
     wp core install --url="https://localhost" \
       --title="42-inception" \
-      --admin_user="super" \
-      --admin_password="super123" \
+      --admin_user=$ADMIN_NAME \
+      --admin_password=$ADMIN_PASSWORD \
       --admin_email="super@example.com" \
       --allow-root
     echo "WordPress installed successfully."
 fi
 
 # Create an editor user if it doesn't exist
-if ! wp user get ahmed --allow-root > /dev/null 2>&1; then
-    wp user create ahmed ahmed@example.com \
-      --role=editor --user_pass="ahmed123" \
-      --display_name="ahmed" --allow-root
-    echo "Editor user 'ahmed' created successfully."
+if ! wp user get $USER_NAME --allow-root > /dev/null 2>&1; then
+    wp user create $USER_NAME $USER_NAME@example.com \
+      --role=editor --user_pass=$USER_PASSWORD \
+      --display_name=$USER_NAME --allow-root
+    echo "Editor user '$USER_NAME' created successfully."
 fi
 
 # Install and configure the Redis plugin

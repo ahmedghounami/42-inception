@@ -3,8 +3,10 @@ FROM    debian:11
 
 RUN apt update && apt upgrade
 
-RUN apt install -y php php-mysql wget
+RUN apt install -y php php-mysql php7.4-fpm wget
 
-RUN wget "https://www.adminer.org/latest.php" -O /var/www/html/index.php
+COPY  ./tools/script.sh /
 
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
+RUN chmod +x /script.sh
+
+CMD ["/script.sh"]
