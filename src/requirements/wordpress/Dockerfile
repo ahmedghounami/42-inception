@@ -11,7 +11,6 @@ RUN apt-get update && \
   php7.4-mysql \
   unzip \
   vim \
-  nginx \
   && apt-get clean 
 
 # Set the working directory

@@ -57,7 +57,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "443:443"
-      - "8080:80"
     networks:
       - wordpress-network
     volumes:
@@ -159,23 +158,23 @@ services:
 
 volumes:
   mariadb-data:
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /home/aghounam/data/mariadb
-    #   o: bind
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aghounam/data/mariadb
+      o: bind
   wordpress-data:
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /home/aghounam/data/wordpress
-    #   o: bind
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aghounam/data/wordpress
+      o: bind
   portainer_data:
-    # driver: local
-    # driver_opts:
-    #   type: none
-    #   device: /home/aghounam/data/portainer
-    #   o: bind
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/aghounam/data/portainer
+      o: bind
 
 
 
