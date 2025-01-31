@@ -10,7 +10,6 @@ wp config set DB_PASSWORD "$WORDPRESS_DB_PASSWORD" --allow-root
 wp config set DB_HOST "$WORDPRESS_DB_HOST" --allow-root
 
 
-# Install WordPress if not already installed
 if ! wp core is-installed --allow-root; then
     wp core install --url="https://localhost" \
       --title="42-inception" \
@@ -19,22 +18,19 @@ if ! wp core is-installed --allow-root; then
       --admin_email="super@example.com" \
       --allow-root
     echo "WordPress installed successfully."
-fi
+fi 
 
-# Create an editor user if it doesn't exist
-if ! wp user get $USER_NAME --allow-root > /dev/null 2>&1; then
+if ! wp user get $USER_NAME --allow-root ; then
     wp user create $USER_NAME $USER_NAME@example.com \
       --role=editor --user_pass=$USER_PASSWORD \
       --display_name=$USER_NAME --allow-root
     echo "Editor user '$USER_NAME' created successfully."
 fi
 
-# Install and configure the Redis plugin
 wp plugin install redis-cache --allow-root
 sleep 5
 wp plugin activate redis-cache --allow-root
 
-# Set Redis-related configuration
 wp config set WP_REDIS_HOST 'redis' --allow-root
 wp config set WP_CACHE 'true' --allow-root
 wp config set FS_METHOD 'direct' --allow-root
@@ -42,9 +38,8 @@ wp config set WP_REDIS_PORT '6379' --allow-root
 wp redis enable --allow-root
 echo "Redis cache configured successfully..."
 
-# Fix permissions and start PHP-FPM
-chmod -R 777 /var/www/html/
-mkdir -p /run/php
+chmod -R 777 /var/www/html/ 
+mkdir -p /run/php  
 
 echo "WordPress is running successfully..."
 php-fpm7.4 -F

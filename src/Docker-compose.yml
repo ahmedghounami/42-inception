@@ -22,8 +22,6 @@ services:
       - wordpress-network
     restart: always
 
-
-
 # wordpress service :
   wordpress:
     container_name: wordpress

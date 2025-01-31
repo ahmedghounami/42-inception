@@ -13,8 +13,6 @@ RUN apt-get update && \
   vim \
   && apt-get clean 
 
-# Set the working directory
-
 WORKDIR /var/www/html
 
 RUN wget https://wordpress.org/latest.zip && \
@@ -24,18 +22,12 @@ RUN wget https://wordpress.org/latest.zip && \
   rm latest.zip && \
   cp wp-config-sample.php wp-config.php
 
-# cli 
+
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
   chmod +x wp-cli.phar && \
   mv wp-cli.phar /usr/local/bin/wp
 
-# Expose  port 80
-EXPOSE 80
-
 COPY tools/init-wordpress.sh /init-wordpress.sh
 RUN chmod +x /init-wordpress.sh
-RUN apt-get update && apt-get install -y php-redis
 
-
-# Command to run WordPress container with NGINX and PHP-FPM
 CMD ["/init-wordpress.sh"]

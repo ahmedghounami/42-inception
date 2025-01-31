@@ -25,5 +25,5 @@ COPY tools/script.sh /script.sh
 
 RUN chmod +x /script.sh
     
-# Start NGINX in the foreground
+
 CMD ["/script.sh"]
