@@ -63,9 +63,6 @@ services:
       - wordpress
     restart: always
 
-
-
-
 # redis service :
   redis:
     container_name: redis
@@ -161,20 +158,20 @@ volumes:
       type: none
       device: /home/aghounam/data/mariadb
       o: bind
+  
   wordpress-data:
     driver: local
     driver_opts:
       type: none
       device: /home/aghounam/data/wordpress
       o: bind
+  
   portainer_data:
     driver: local
     driver_opts:
       type: none
       device: /home/aghounam/data/portainer
       o: bind
-
-
 
 networks:
   wordpress-network:
