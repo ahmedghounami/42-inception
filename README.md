@@ -119,7 +119,7 @@ The project consists of setting up a small infrastructure with Docker under the 
   
 ### **Mandatory Containers:**
 
-![Image 1](https://linuxfun.org/wp-content/uploads/2021/10/image-38.png)
+![Image 1](https://user-images.githubusercontent.com/54292953/147146268-a616f39a-3f16-41f8-80c9-db5494c3dfe7.png)
 
 - **NGINX** (with TLSv1.2 or TLSv1.3)
 - **WordPress + PHP-FPM** (without NGINX)
