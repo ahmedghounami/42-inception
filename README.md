@@ -150,6 +150,7 @@ The project consists of setting up a small infrastructure with Docker under the 
 This project requires setting up a small infrastructure composed of different services under specific rules. Each service runs inside its own container, and all containers communicate through a Docker network.
 
 ### 1. **NGINX (Web Server with TLS)**
+![Image 1](https://github.com/ahmedghounami/42-inception/raw/master/nginx.webp)
    - **What is NGINX?**
      - NGINX is a high-performance web server, reverse proxy, and load balancer known for its efficiency in handling concurrent connections.
      - It is event-driven and asynchronous, making it more efficient than traditional thread-based web servers like Apache.
@@ -159,6 +160,7 @@ This project requires setting up a small infrastructure composed of different se
      - Implements TLS encryption for secure communication.
 
 ### 2. **WordPress + PHP-FPM**
+![Image 1](https://github.com/ahmedghounami/42-inception/raw/master/php-fpm.png)
    - **What is WordPress?**
      - WordPress is an open-source Content Management System (CMS) used for building websites and blogs.
      - It runs on PHP and requires a MySQL/MariaDB database for storing content.
@@ -169,6 +171,7 @@ This project requires setting up a small infrastructure composed of different se
      - PHP-FPM allows PHP scripts to run efficiently by managing worker processes.
 
 ### 3. **MariaDB (Database Server)**
+![Image 1](https://github.com/ahmedghounami/42-inception/raw/master/mariadb.jpg)
    - **What is MariaDB?**
      - MariaDB is an open-source relational database management system (RDBMS), developed as a fork of MySQL.
      - It is used to store structured data and efficiently manage SQL queries.
