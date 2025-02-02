@@ -17,7 +17,7 @@ This project is designed to deepen your understanding of **system administration
 
 
 ## What is Docker?
-![Image 1](https://github.com/ahmedghounami/42-inception/raw/master/building.gif)
+![Image 1](https://www.appsdeveloperblog.com/wp-content/uploads/2023/05/docker-tutorial-for-beginners.gif)
 Docker is a **containerization platform** that allows developers to package applications and their dependencies into lightweight, portable containers. These containers can run consistently across various environments, eliminating the "it works on my machine" problem.
 
 ### Key Features:
