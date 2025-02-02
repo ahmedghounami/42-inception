@@ -44,7 +44,7 @@ Control Groups (cgroups) allow Docker to limit and allocate resources (CPU, memo
 ---
 
 ## Docker CLI, API, Daemon, and Engine
-![Image 1]([https://github.com/ahmedghounami/42-inception/raw/master/docker.png](https://geekflare.com/wp-content/uploads/2019/09/docker-architecture-609x270.png))
+![Image 1](https://geekflare.com/wp-content/uploads/2019/09/docker-architecture-609x270.png)
 
 ### **1. Docker Engine**
 Docker Engine is the core of Docker, responsible for creating and managing containers. It consists of:
