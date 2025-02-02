@@ -200,6 +200,31 @@ This project requires setting up a small infrastructure composed of different se
 
 ---
 
+
+
+## Bonus Services
+### 1. **Redis Cache**
+   - Redis is an in-memory key-value store used to cache frequently accessed data, reducing database load and improving performance.
+   - It can be used with WordPress to cache pages, sessions, and database queries.
+
+### 2. **FTP Server**
+   - An FTP server allows remote access to files within a container, useful for managing WordPress uploads and themes.
+   - It provides secure file transfers using protocols like FTPS.
+
+### 3. **Static Website**
+   - A simple static website can be deployed alongside the WordPress instance.
+   - Useful for hosting documentation or landing pages without requiring PHP or a database.
+
+### 4. **Adminer**
+   - A lightweight, web-based database management tool for MariaDB.
+   - Provides an easy-to-use interface for executing queries and managing databases.
+
+### 5. **Portainer**
+   - Portainer is a web-based UI for managing Docker containers, images, networks, and volumes.
+   - Simplifies container monitoring, deployment, and management tasks.
+
+---
+
 ## Conclusion
 This project challenges you to master **Docker**, **networking**, and **security best practices**. By completing it, you will gain valuable experience in **containerized application deployment** and **system administration**.
 
