@@ -39,12 +39,6 @@ Namespaces ensure that each container has its own separate view of the system (e
 ### 2. **Cgroups** (Resource Control)
 Control Groups (cgroups) allow Docker to limit and allocate resources (CPU, memory, disk I/O) to specific containers, ensuring fair resource usage.
 
-### 3. **UnionFS (OverlayFS, AUFS, etc.)**
-Union File Systems enable Docker to use a layered approach, making images lightweight and efficient by reusing common layers.
-
-### 4. **Seccomp, AppArmor, SELinux** (Security Controls)
-Docker enhances security by enforcing process restrictions and applying security policies.
-
 ---
 
 ## Docker CLI, API, Daemon, and Engine
