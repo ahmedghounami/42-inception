@@ -146,10 +146,63 @@ The project consists of setting up a small infrastructure with Docker under the 
 
 ---
 
-## Submission Guidelines
-- Push your project to a Git repository.
-- Double-check folder and file names.
-- Use Git best practices (meaningful commits, organized structure).
+
+## Mandatory Services
+This project requires setting up a small infrastructure composed of different services under specific rules. Each service runs inside its own container, and all containers communicate through a Docker network.
+
+### 1. **NGINX (Web Server with TLS)**
+   - **What is NGINX?**
+     - NGINX is a high-performance web server, reverse proxy, and load balancer known for its efficiency in handling concurrent connections.
+     - It is event-driven and asynchronous, making it more efficient than traditional thread-based web servers like Apache.
+   - **How it works:**
+     - Handles HTTP and HTTPS requests.
+     - Serves static files and proxies dynamic requests to backend servers.
+     - Implements TLS encryption for secure communication.
+
+### 2. **WordPress + PHP-FPM**
+   - **What is WordPress?**
+     - WordPress is an open-source Content Management System (CMS) used for building websites and blogs.
+     - It runs on PHP and requires a MySQL/MariaDB database for storing content.
+   - **What is PHP-FPM?**
+     - PHP-FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation that improves performance by handling requests more efficiently.
+   - **How it works:**
+     - WordPress processes dynamic requests using PHP-FPM, which communicates with the MariaDB database for content storage.
+     - PHP-FPM allows PHP scripts to run efficiently by managing worker processes.
+
+### 3. **MariaDB (Database Server)**
+   - **What is MariaDB?**
+     - MariaDB is an open-source relational database management system (RDBMS), developed as a fork of MySQL.
+     - It is used to store structured data and efficiently manage SQL queries.
+   - **How it works:**
+     - Stores all WordPress site data, including user content and settings.
+     - Uses SQL for data manipulation and retrieval.
+     - Provides authentication and role-based access control.
+
+### 4. **Volumes**
+   - **What are Docker Volumes?**
+     - Volumes provide persistent storage for data inside Docker containers.
+     - Unlike bind mounts, Docker manages volumes, making them more efficient and portable.
+   - **How it works:**
+     - WordPress files are stored in a volume, ensuring data persists across container restarts.
+     - MariaDB stores its database in a volume to retain data across reboots.
+
+### 5. **Docker Network**
+   - **What is a Docker Network?**
+     - A Docker network enables containers to communicate securely and efficiently.
+     - It isolates services from the host system and the internet unless explicitly configured otherwise.
+   - **How it works:**
+     - Containers communicate via a user-defined bridge network in `docker-compose.yml`.
+     - Ensures controlled and secure communication between services.
+
+### 6. **Environment Variables & Security**
+   - **What are Environment Variables?**
+     - Environment variables store configuration settings, such as database credentials and domain names, without hardcoding them in the source code.
+   - **What is Docker Secrets?**
+     - Docker Secrets is a secure way to manage sensitive data, such as passwords, without exposing them in files or environment variables.
+   - **How it works:**
+     - Environment variables are defined in a `.env` file and loaded into containers at runtime.
+     - Secrets can be securely stored and managed by Docker, preventing exposure in logs or source control.
+
 
 ---
 
