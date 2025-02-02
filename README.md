@@ -16,6 +16,12 @@ This project is designed to deepen your understanding of **system administration
 - [Docker Volumes](#docker-volumes)
 - [Docker Network](#docker-network)
 
+- [Bonus Services](#bonus-services)
+  - [Redis Cache](#redis-cache)
+  - [FTP Server](#ftp-server)
+  - [Static Website](#static-website)
+  - [Adminer](#adminer)
+  - [Portainer](#portainer)
 ---
 
 ## What is Docker?
