@@ -10,18 +10,9 @@ This project is designed to deepen your understanding of **system administration
 - [Docker Compose](#docker-compose)
 - [Project Requirements](#project-requirements)
 - [Bonus Features](#bonus-features)
-- [NGINX (Web Server with TLS)](#nginx-web-server-with-tls)
-- [WordPress + PHP-FPM](#wordpress--php-fpm)
-- [MariaDB (Database Server)](#mariadb-database-server)
-- [Docker Volumes](#docker-volumes)
-- [Docker Network](#docker-network)
-
+-------------------------------------
+- [Mandatory Services](#mandatory-services)
 - [Bonus Services](#bonus-services)
-  - [Redis Cache](#redis-cache)
-  - [FTP Server](#ftp-server)
-  - [Static Website](#static-website)
-  - [Adminer](#adminer)
-  - [Portainer](#portainer)
 ---
 
 ## What is Docker?
