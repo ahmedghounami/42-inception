@@ -10,6 +10,12 @@ This project is designed to deepen your understanding of **system administration
 - [Docker Compose](#docker-compose)
 - [Project Requirements](#project-requirements)
 - [Bonus Features](#bonus-features)
+- [Submission Guidelines](#NGINX-(Web-Server-with-TLS))
+- [Submission Guidelines](#submission-guidelines)
+- [Submission Guidelines](#submission-guidelines)
+- [Submission Guidelines](#submission-guidelines)
+- [Submission Guidelines](#submission-guidelines)
+- [Submission Guidelines](#submission-guidelines)
 - [Submission Guidelines](#submission-guidelines)
 
 ---
@@ -202,7 +208,6 @@ This project requires setting up a small infrastructure composed of different se
    - **How it works:**
      - Environment variables are defined in a `.env` file and loaded into containers at runtime.
      - Secrets can be securely stored and managed by Docker, preventing exposure in logs or source control.
-
 
 ---
 
