@@ -10,13 +10,11 @@ This project is designed to deepen your understanding of **system administration
 - [Docker Compose](#docker-compose)
 - [Project Requirements](#project-requirements)
 - [Bonus Features](#bonus-features)
-- [Submission Guidelines](#NGINX-(Web-Server-with-TLS))
-- [Submission Guidelines](#submission-guidelines)
-- [Submission Guidelines](#submission-guidelines)
-- [Submission Guidelines](#submission-guidelines)
-- [Submission Guidelines](#submission-guidelines)
-- [Submission Guidelines](#submission-guidelines)
-- [Submission Guidelines](#submission-guidelines)
+- [NGINX (Web Server with TLS)](#nginx-web-server-with-tls)
+- [WordPress + PHP-FPM](#wordpress--php-fpm)
+- [MariaDB (Database Server)](#mariadb-database-server)
+- [Docker Volumes](#docker-volumes)
+- [Docker Network](#docker-network)
 
 ---
 
@@ -199,15 +197,6 @@ This project requires setting up a small infrastructure composed of different se
    - **How it works:**
      - Containers communicate via a user-defined bridge network in `docker-compose.yml`.
      - Ensures controlled and secure communication between services.
-
-### 6. **Environment Variables & Security**
-   - **What are Environment Variables?**
-     - Environment variables store configuration settings, such as database credentials and domain names, without hardcoding them in the source code.
-   - **What is Docker Secrets?**
-     - Docker Secrets is a secure way to manage sensitive data, such as passwords, without exposing them in files or environment variables.
-   - **How it works:**
-     - Environment variables are defined in a `.env` file and loaded into containers at runtime.
-     - Secrets can be securely stored and managed by Docker, preventing exposure in logs or source control.
 
 ---
 
